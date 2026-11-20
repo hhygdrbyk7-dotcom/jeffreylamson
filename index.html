@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeffrey Lamson</title>
+<meta name="description" content="Jeffrey Lamson, PhD — historian of modern U.S. policing, technology, and the carceral state.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text: #1c1c1c;
+    --muted: #5f5f5f;
+    --rule: #e4e4e4;
+    --accent: #1f3a5f;
+    --bg: #ffffff;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* Header */
+  header {
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.2px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+  nav a.link {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+  }
+  nav a.link:hover { color: var(--text); }
+  nav a.link.active { color: var(--text); border-bottom-color: var(--text); }
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--accent);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  .btn:hover { background: #162b47; }
+
+  /* Main */
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 24px 72px;
+  }
+  .page { display: none; }
+  .page.active { display: block; }
+  .prose { max-width: 680px; }
+
+  h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    font-weight: 600;
+    margin: 0 0 12px;
+    letter-spacing: -0.3px;
+  }
+  h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 24px;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--muted);
+    margin: 44px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3:first-of-type { margin-top: 8px; }
+  p { margin: 0 0 18px; }
+
+  /* Home */
+  .lede {
+    font-size: 21px;
+    color: var(--text);
+    max-width: 680px;
+    margin-bottom: 8px;
+  }
+  .roles {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  figure { margin: 0 0 36px; }
+  figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+  }
+  .home-links {
+    font-family: var(--sans);
+    font-size: 15px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-text p:first-child { margin-top: 0; }
+  .about-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+
+  /* Writing list */
+  ul.works { list-style: none; padding: 0; margin: 0; }
+  ul.works li { margin: 0 0 18px; }
+  .title { font-weight: 600; }
+  .venue { font-style: italic; }
+  .note { color: var(--muted); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--rule);
+  }
+  footer .bar {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--muted);
+    padding-top: 26px;
+    padding-bottom: 32px;
+  }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 640px) {
+    body { font-size: 17px; }
+    .bar { padding: 18px 20px; }
+    nav { gap: 18px; width: 100%; }
+    nav .btn { margin-left: auto; }
+    main { padding: 36px 20px 56px; }
+    h1 { font-size: 32px; }
+    .lede { font-size: 19px; }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-photo { grid-row: 1; max-width: 260px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="name" href="#">Jeffrey Lamson</a>
+    <nav>
+      <a class="link" href="#" data-page="home">Home</a>
+      <a class="link" href="#about" data-page="about">About</a>
+      <a class="link" href="#writing" data-page="writing">Writing</a>
+      <a class="btn" href="mailto:lamson.j@northeastern.edu">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HOME ============ -->
+  <section class="page" id="page-home">
+    <h1>Jeffrey Lamson, PhD, MSEd</h1>
+    <p class="lede">Historian of modern U.S. policing, technology, and the carceral state in the United States and the world.</p>
+    <p class="roles">Senior Research Analyst, Campaign Zero</p>
+    <figure>
+      <img src="photo.jpg" alt="Jeffrey Lamson presenting research on body-worn camera policies to a conference audience">
+    </figure>
+    <div class="home-links">
+      <a href="#about">About me</a>
+      <a href="#writing">Writing</a>
+      <a href="Jeffrey_Lamson_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="page" id="page-about">
+    <h2>About</h2>
+    <div class="about-grid">
+    <div class="about-text">
+    <p>I am a historian of modern U.S. history with a focus on policing, technology, and the carceral state. I received my PhD in World History from Northeastern University in 2026. My dissertation, <em>Mobilizing Authority: Patrol Cars, Police Reform, and the Making of Modern Urban Policing in the United States and the World</em>, examines how the patrol car reshaped police power, professionalization, and reform in American cities and beyond.</p>
+    <p>Alongside my scholarship, I am a Senior Research Analyst at Campaign Zero, where I lead data collection and analysis, write original research reports, and draft model policy on issues including police body-worn cameras, no-knock warrants, and solitary confinement. Using this research, we work with local organizers and legislators to reshape policies and laws to prioritize civil rights and democratic values in the criminal-legal system.</p>
+    <p>I maintain an active teaching load as an adjunct professor at Mercy University, and I have previously taught at Wesleyan University, the Wesleyan Center for Prison Education, and Northeastern University, and spent five years as a high school history teacher. I hold an MSEd from the University of Pennsylvania.</p>
+    <p>My research has been supported by the Society for Historians of American Foreign Relations, the Northeastern University Humanities Center, and the Brudnick Center on Violence and Conflict, and my public writing has appeared in <em>The Washington Post</em>, <em>Public Books</em>, and <em>Jacobin</em>.</p>
+    <p style="margin-top:28px"><a class="btn" href="Jeffrey_Lamson_CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
+    </div>
+    <img class="about-photo" src="photo-about.jpg" alt="Jeffrey Lamson speaking at a podium">
+    </div>
+  </section>
+
+  <!-- ============ WRITING ============ -->
+  <section class="page prose" id="page-writing">
+    <h2>Writing</h2>
+
+    <h3>Dissertation</h3>
+    <ul class="works">
+      <li>
+        <span class="title">Mobilizing Authority: Patrol Cars, Police Reform, and the Making of Modern Urban Policing in the United States and the World</span><br>
+        <span class="note">PhD dissertation, Department of History, Northeastern University, 2026.</span>
+      </li>
+    </ul>
+
+    <h3>Peer-Reviewed Articles</h3>
+    <ul class="works">
+      <li>
+        “<span class="title">Police Power in the American City</span>.” <span class="venue">Journal of Urban History</span>. <span class="note">Forthcoming, 2026.</span>
+      </li>
+      <li>
+        “<span class="title">‘Must Your School Become a Fortress?’: Security Technology and Infrastructure in U.S. Schools, 1970–2000</span>.” With Victoria Cain. <span class="note">Under review, <span class="venue">Journal of Modern American History</span>.</span>
+      </li>
+    </ul>
+
+    <h3>Public Writing</h3>
+    <ul class="works">
+      <li>
+        “<span class="title">Fatal Chase: Cops and the Illusion of Control</span>.” <span class="venue">Public Books</span>, August 2024.
+      </li>
+      <li>
+        “<a class="title" href="https://www.washingtonpost.com/made-by-history/2023/03/20/police-cars-reform-technology/" target="_blank" rel="noopener">Police cars are a form of PR — and the message is always the same</a>.” <span class="venue">The Washington Post</span>, March 2023.
+      </li>
+      <li>
+        “<a class="title" href="https://jacobin.com/2022/02/american-police-militarized-riotsville-usa-documentary-film" target="_blank" rel="noopener">American Police Have Always Been Militarized</a>.” <span class="venue">Jacobin</span>, February 2022.
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="bar">
+    <span>© 2026 Jeffrey Lamson</span>
+    <span class="contact-links">lamson.j@northeastern.edu &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var pages = ["home", "about", "writing"];
+    function show() {
+      var h = (location.hash || "").replace("#", "");
+      var page = pages.indexOf(h) > -1 ? h : "home";
+      pages.forEach(function (p) {
+        document.getElementById("page-" + p).classList.toggle("active", p === page);
+      });
+      document.querySelectorAll("nav a.link").forEach(function (a) {
+        a.classList.toggle("active", a.getAttribute("data-page") === page);
+      });
+      var titles = { home: "Jeffrey Lamson", about: "About · Jeffrey Lamson", writing: "Writing · Jeffrey Lamson" };
+      document.title = titles[page];
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener("hashchange", show);
+    show();
+  })();
+</script>
+</body>
+</html>
